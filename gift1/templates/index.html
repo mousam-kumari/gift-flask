@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Suggester</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        #prevButton,
+        #nextButton,
+        #generateMoreButton {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gift Guru</h1>
+    <form id="giftForm">
+        <label for="age">Age:</label>
+        <select id="age" name="age" required>
+            <option value="" disabled selected>Select Age</option>
+            <option value="0-2">0-2</option>
+            <option value="3-5">3-5</option>
+            <option value="6-10">6-10</option>
+            <option value="11-15">11-15</option>
+            <option value="16-20">16-20</option>
+            <option value="21-30">21-30</option>
+            <option value="31-40">31-40</option>
+            <option value="41-50">41-50</option>
+            <option value="51-60">51-60</option>
+            <option value="61+">61+</option>
+        </select><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="occasion">Occasion:</label>
+        <select id="occasion" name="occasion" required>
+            <option value="" disabled selected>Select Occasion</option>
+            <option value="birthday">Birthday</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="wedding">Wedding</option>
+            <option value="graduation">Graduation</option>
+            <option value="holiday">Holiday</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="recipient_type">Recipient Type:</label>
+        <select id="recipient_type" name="recipient_type" required>
+            <option value="" disabled selected>Select Recipient Type</option>
+            <option value="friend">Friend</option>
+            <option value="family">Family</option>
+            <option value="colleague">Colleague</option>
+            <option value="partner">Partner</option>
+            <option value="child">Child</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="categories">Categories:</label><br>
+        <input type="checkbox" id="toys" name="categories" value="toys">
+        <label for="toys">Toys</label><br>
+        <input type="checkbox" id="electronics" name="categories" value="electronics">
+        <label for="electronics">Electronics</label><br>
+        <input type="checkbox" id="books" name="categories" value="books">
+        <label for="books">Books</label><br>
+        <input type="checkbox" id="clothing" name="categories" value="clothing">
+        <label for="clothing">Clothing</label><br>
+        <input type="checkbox" id="accessories" name="categories" value="accessories">
+        <label for="accessories">Accessories</label><br>
+        <input type="checkbox" id="home_decor" name="categories" value="home_decor">
+        <label for="home_decor">Home Decor</label><br>
+        <input type="checkbox" id="other" name="categories" value="other">
+        <label for="other">Other</label><br>
+
+        <label for="price_range">Price Range:</label>
+        <select id="price_range" name="price_range" required>
+            <option value="" disabled selected>Select Price Range</option>
+            <option value="0-20">$0 - $20</option>
+            <option value="21-50">$21 - $50</option>
+            <option value="51-100">$51 - $100</option>
+            <option value="101-200">$101 - $200</option>
+            <option value="201-500">$201 - $500</option>
+            <option value="501-1000">$501 - $1000</option>
+            <option value="1000+">$1000+</option>
+        </select><br>
+
+        <button type="button" onclick="generateGiftIdea()">Generate Gift Idea</button>
+        <input type="text" id="searchInput" name="search" placeholder="Enter your prompt here...">
+        <button type="button" onclick="searchGiftIdea()">Search</button>
+    </form>
+    <div id="results"></div>
+    <button id="prevButton" onclick="prevGiftIdeas()">Previous</button>
+    <button id="nextButton" onclick="nextGiftIdeas()">Next</button>
+    <button id="generateMoreButton" onclick="generateMoreGiftIdeas()">Generate More</button>
+
+</body>
+</html>
